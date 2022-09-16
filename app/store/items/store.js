@@ -1,8 +1,9 @@
-Ext.define('ItemApp.store.ItemStore', { //стор для того чтобы собрать данные
+Ext.define('App.store.ItemStore', { //стор для того чтобы собрать данные
     extend: 'Ext.data.Store',
-    model: 'ItemApp.model.Item',
+    alias: 'store.itemsStore',
+    model: 'App.model.Item',
     autoLoad: true,
-    storeId: 'ItemStore',
+
     proxy: {
         type: 'ajax',
         url: 'app/data/items.json',

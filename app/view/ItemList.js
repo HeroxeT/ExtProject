@@ -1,4 +1,4 @@
-Ext.define('ItemApp.view.ItemList' ,{ //таблица и ее отрисовка
+Ext.define('App.view.ItemList' ,{ //таблица и ее отрисовка
     extend: 'Ext.grid.Panel',
     alias: 'widget.itemlist',
     title: 'Список товаров',
