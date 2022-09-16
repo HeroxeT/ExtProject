@@ -10,7 +10,7 @@ Ext.define('App.controller.ComponentController', {
             return;
         }
 
-        const component = tabPanel.down(xtype) ||
+        const component = tabPanel.lookupReference(xtype) ||
             tabPanel.add(Ext.create({
                 xtype,
                 reference: xtype,

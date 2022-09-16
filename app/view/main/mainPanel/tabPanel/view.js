@@ -1,6 +1,7 @@
 Ext.define('App.view.main.mainPanel.tabPanel.view', {
     extend: 'Ext.tab.Panel',
     alias: 'widget.mainTabPanel',
+    referenceHolder: true,
     bodyPadding: 5,
     flex: 1,
 
