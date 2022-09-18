@@ -1,4 +1,4 @@
-Ext.define('App.view.main.authorizationForm.viewController', {
+Ext.define('App.views.main.authorizationForm.viewController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.authorizationForm',
 
@@ -15,11 +15,16 @@ Ext.define('App.view.main.authorizationForm.viewController', {
                 xtype: 'mainPanel',
             });
 
-            mainTabPanel.show();
+            const viewModel = mainTabPanel.getViewModel();
 
+            viewModel.set({
+                username: login,
+                userId: 1,
+            });
+
+            mainTabPanel.show();
         } else {
             Ext.MessageBox.alert('Ошибка', 'Неправильное имя пользователя или пароль');
         }
     },
-
 });
