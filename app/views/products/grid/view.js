@@ -9,27 +9,37 @@ Ext.define('App.views.products.grid.view', {
     viewConfig: {
         enableTextSelection: true,
     },
+    closable: true,
 
     store: {
         type: 'productsStore',
     },
 
+    listeners: {
+        itemdblclick: 'openEditCard',
+    },
+
     tbar: [
         {
-            xtype: 'numberfield',
+            xtype: 'filterNumberField',
             fieldLabel: 'ID:',
-            labelWidth: 70,
-
-            listeners: {
-                specialkey(field, e) {
-                    if (e.browserEvent.keyCode !== 13) {
-                        return;
-                    }
-
-                    _Filter.filter(field, _Filter.searchForEnteredValue);
-                },
-            },
+            labelWidth: 30,
         },
+        {
+            xtype: 'filterTextField',
+        },
+        {
+            xtype: 'filterTextField',
+            fieldLabel: 'Описание',
+            searchProperty: 'about',
+            labelWidth: 80,
+        },
+        '->',
+        {
+            xtype: 'button',
+            text: 'Добавить',
+            handler: 'openCreateCard',
+        }
     ],
 
     columns: [

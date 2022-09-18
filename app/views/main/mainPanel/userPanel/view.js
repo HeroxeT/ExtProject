@@ -1,7 +1,14 @@
 Ext.define('App.views.main.mainPanel.userPanel.view', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.userPanel',
+    controller: 'userPanel',
+
+    requires: [
+        'App.views.main.mainPanel.userPanel.viewController',
+    ],
+
     flex: 0.2,
+    border: 0,
 
     layout: {
         type: 'vbox',

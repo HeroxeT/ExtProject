@@ -1,5 +1,5 @@
 Ext.define('App.views.main.mainPanel.userPanel.viewController', {
-    extend: 'Ext.app.viewController',
+    extend: 'Ext.app.ViewController',
     alias: 'controller.userPanel',
 
     logout(button) {
@@ -9,6 +9,12 @@ Ext.define('App.views.main.mainPanel.userPanel.viewController', {
             return;
         }
 
-        const tabPanel = mainPanel.down('tabpanel');
+        mainPanel.destroy();
+
+        const formAuth = Ext.create({
+            xtype: 'authorizationForm',
+        });
+
+        formAuth.show();
     },
 });

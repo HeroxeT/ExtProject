@@ -1,5 +1,6 @@
 Ext.define('App.models.products.Products', {
     extend: 'Ext.data.Model',
+    requires: ['App.data.products.proxy'],
 
     fields: [
         {
@@ -23,4 +24,14 @@ Ext.define('App.models.products.Products', {
             type: 'int',
         },
     ],
+
+    proxy: {
+        type: 'productsProxy',
+
+        reader: {
+            type: 'json',
+            root: 'items',
+            successProperty: 'success',
+        },
+    },
 });

@@ -8,18 +8,37 @@ Ext.define('App.views.main.mainPanel.view', {
         },
     },
 
-    requires: ['App.views.main.mainPanel.tabPanel.view', 'App.views.main.mainPanel.userPanel.view'],
+    requires: [
+        'App.views.main.mainPanel.tabPanel.view',
+        'App.views.main.mainPanel.userPanel.view',
+        'App.views.main.mainPanel.toolBar.view',
+    ],
     layout: {
-        type: 'hbox',
+        type: 'vbox',
         align: 'stretch',
     },
 
     items: [
         {
-            xtype: 'mainTabPanel',
+            xtype: 'mainToolBar',
         },
         {
-            xtype: 'userPanel',
+            xtype: 'panel',
+            flex: 1,
+
+            layout: {
+                type: 'hbox',
+                align: 'stretch',
+            },
+
+            items: [
+                {
+                    xtype: 'mainTabPanel',
+                },
+                {
+                    xtype: 'userPanel',
+                },
+            ]
         },
     ],
 });

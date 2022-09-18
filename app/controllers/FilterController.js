@@ -3,7 +3,7 @@ Ext.define('App.controllers.FilterController', {
     alternateClassName: '_Filter',
 
     filter(filter, filterFunction) {
-        const { searchProperty } = filter;
+        const {searchProperty} = filter;
         const filterValue = filter.getValue();
 
         const filterTarget = filter.up('grid');
@@ -15,22 +15,26 @@ Ext.define('App.controllers.FilterController', {
         const filterTargetStore = filterTarget.getStore();
 
         if (!filterValue) {
-            filterTargetStore.removeeFilter(filterFunction());
+            filterTargetStore.removeFilter(searchProperty);
+            return;
         }
 
         filterTargetStore.addFilter(filterFunction(searchProperty, filterValue));
     },
 
     searchForEnteredValue(searchProperty, filterValue) {
-        return (item) => item.get(searchProperty) === filterValue;
+        return {
+            property: searchProperty,
+            value: filterValue,
+            operator: '=',
+        }
     },
 
     searchByOccurrence(searchProperty, filterValue) {
-        const parsedValue = filterValue.toLowerCase();
-
-        return (item) => {
-            const parsedProperty = item.get(searchProperty).toLowerCase();
-            return parsedProperty.indexOf(parsedValue) >= 0;
-        };
+        return {
+            property: searchProperty,
+            value: filterValue,
+            operator: 'like',
+        }
     },
 });
