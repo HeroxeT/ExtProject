@@ -1,9 +1,9 @@
-Ext.define('App.view.main.authorizationForm.view', {
+Ext.define('App.views.main.authorizationForm.view', {
     extend: 'Ext.window.Window',
     alias: 'widget.authorizationForm',
     controller: 'authorizationForm',
 
-    requires: ['App.view.main.authorizationForm.viewController',],
+    requires: ['App.views.main.authorizationForm.viewController'],
 
     fullscreen: true,
     closable: false,
@@ -11,7 +11,6 @@ Ext.define('App.view.main.authorizationForm.view', {
     width: 300,
     style: 'margin:auto;margin-top:100px;',
     items: [
-
         {
             xtype: 'form',
 
@@ -42,4 +41,4 @@ Ext.define('App.view.main.authorizationForm.view', {
         },
     ],
     draggable: true,
-})
+});
