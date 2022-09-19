@@ -37,6 +37,7 @@ Ext.define('App.views.products.card.view', {
                 minValue: 0,
                 xtype: 'numberfield',
                 hideTrigger: true,
+                allowBlank: false,
             },
 
             items: [
@@ -75,6 +76,7 @@ Ext.define('App.views.products.card.view', {
                 {
                     text: 'Сохранить',
                     handler: 'saveRecord',
+                    formBind: true,
                 }
             ]
         },

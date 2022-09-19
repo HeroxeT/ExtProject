@@ -10,11 +10,6 @@ Ext.define('App.views.products.grid.viewController', {
         return value;
     },
 
-    openCreateCard() {
-        const productWindow = _Component.openComponentCard('productCard', 'productCardNew')();
-        productWindow.show();
-    },
-
     openEditCard(grid, record) {
         const recordId = record.getId();
         const productWindow = _Component.openComponentCard('productCard', `productCard${recordId}`)();
@@ -24,7 +19,5 @@ Ext.define('App.views.products.grid.viewController', {
 
         viewModel.set({productId: recordId});
         form.loadRecord(record);
-
-        productWindow.show();
     },
 });

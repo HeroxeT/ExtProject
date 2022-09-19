@@ -38,7 +38,7 @@ Ext.define('App.views.products.grid.view', {
         {
             xtype: 'button',
             text: 'Добавить',
-            handler: 'openCreateCard',
+            handler: _Component.openComponentCard('productCard', 'productCardNew'),
         }
     ],
 
@@ -59,7 +59,7 @@ Ext.define('App.views.products.grid.view', {
             flex: 1,
         },
         {
-            text: 'Количество',
+            text: 'Цена',
             dataIndex: 'price',
             flex: 1,
         },
